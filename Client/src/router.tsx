@@ -1,0 +1,98 @@
+
+import { createBrowserRouter } from 'react-router-dom'
+import WelcomePage from './pages/WelcomePage'
+import Layout from './pages/Layout'
+import { LoginPage } from './pages/LoginPage'
+import { RegisterPage } from './pages/RegisterPage'
+import AdminRoutes from './pages/AdminRoutes'
+import CartPage from './pages/CartPage'
+import PrivateDetailsPage from './pages/PrivateDetailsPage'
+import ProductList from './pages/ProductsList'
+import ProductDetail from './pages/ProductDetail'
+import CheckoutCustomerDetail from './pages/CheckoutCustomerDetail'
+import CheckoutPayment from './pages/CheckoutPayment'
+import ContactPage from './pages/Contact'
+import AboutUs from './pages/AboutUs'
+import Faqs from './pages/Faqs'
+import ShippingPolicy from './pages/ShippingPolicy'
+import OrderHistory from './pages/OrderHistory'
+import { USER_ROLES } from './types/Auth'
+import AdminManagement from './pages/AdminManagement'
+import SellerManagement from './pages/SellerManagement'
+import AdminCategoryManagement from './pages/AdminCategoryManagement'
+import SellerNotifications from './pages/SellerNotifications'
+import SellerOrderManagement from './pages/SellerOrderManagement'
+import SellerReviewManagement from './pages/SellerReviewManagement'
+import AdminAnalytics from './pages/AdminAnalytics'
+import AdminCommissionManagement from './pages/AdminCommissionManagement'
+import SellerAnalyticsPage from './pages/SellerAnalytics'
+import AdminSellerProducts from './pages/AdminSellerProducts'
+import SellerApprovalRequired from './pages/SellerApprovalRequired'
+import ForgotPasswordPage from './pages/ForgotPasswordPage'
+import ResetPasswordPage from './pages/ResetPasswordPage'
+
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout/>,
+    children:[
+      {index: true, element: <WelcomePage />},
+      {path:"products",element:<ProductList/>},
+      {path:"products/:id",element:<ProductDetail/>},
+      {path:"contact",element:<ContactPage/>},
+      {path:"about-us",element:<AboutUs/>},
+      {path:"faqs",element:<Faqs/>},
+      {path:"shipping-policy",element:<ShippingPolicy/>},
+      {path:"login",element:<LoginPage/>},
+      {path:"signup",element:<RegisterPage/>},
+      {path:"forgot-password",element:<ForgotPasswordPage/>},
+      {path:"reset-password",element:<ResetPasswordPage/>},
+      {path:"reset-password/:token",element:<ResetPasswordPage/>},
+      {
+        element:<AdminRoutes/>,
+        children:[
+          {path:"dashboard",element:<WelcomePage/>},
+          {path:"private-details",element:<PrivateDetailsPage/>},
+        ]
+      },
+      {
+        element:<AdminRoutes allowedRoles={[USER_ROLES.CUSTOMER]}/>,
+        children:[
+          {path:"cart",element:<CartPage/>},
+          {path:"checkout/customer-details",element:<CheckoutCustomerDetail/>},
+          {path:"checkout/payment",element:<CheckoutPayment/>},
+          {path:"orders",element:<OrderHistory/>},
+        ]
+      },
+      {
+        element:<AdminRoutes allowedRoles={[USER_ROLES.ADMIN]}/>,
+        children:[
+          {path:"admin/analytics",element:<AdminAnalytics/>},
+          {path:"admin/manage",element:<AdminManagement/>},
+          {path:"admin/sellers/:sellerId/products",element:<AdminSellerProducts/>},
+          {path:"admin/categories",element:<AdminCategoryManagement/>},
+          {path:"admin/commissions",element:<AdminCommissionManagement/>},
+        ]
+      },
+      {
+        element:<AdminRoutes allowedRoles={[USER_ROLES.SELLER]}/>,
+        children:[
+          {path:"seller/approval-required",element:<SellerApprovalRequired/>},
+        ]
+      },
+      {
+        element:<AdminRoutes allowedRoles={[USER_ROLES.SELLER]} requireApprovedSeller={true}/>,
+        children:[
+          {path:"seller/analytics",element:<SellerAnalyticsPage/>},
+          {path:"seller/manage",element:<SellerManagement/>},
+          {path:"seller/notifications",element:<SellerNotifications/>},
+          {path:"seller/orders",element:<SellerOrderManagement/>},
+          {path:"seller/reviews",element:<SellerReviewManagement/>},
+        ]
+      }
+    ]
+  }
+
+])
+
+export default router

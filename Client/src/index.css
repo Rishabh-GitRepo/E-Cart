@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  font-family: Inter, "Segoe UI", sans-serif;
+  background: #fffaf5;
+  color: #111827;
+  --flash-bg: #fffaf5;
+  --flash-panel: rgba(255, 255, 255, 0.82);
+  --flash-card: #ffffff;
+  --flash-border: rgba(15, 23, 42, 0.08);
+  --flash-ink: #0f172a;
+  --flash-ink-soft: #475569;
+  --flash-accent: #f97316;
+  --flash-accent-strong: #ea580c;
+  --flash-accent-soft: #ffedd5;
+  --flash-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(249, 115, 22, 0.1), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(251, 146, 60, 0.12), transparent 28%),
+    var(--flash-bg);
+  color: var(--flash-ink);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.app-shell {
+  background: linear-gradient(180deg, #fffaf5 0%, #fff 30%, #fff8f2 100%);
+}
+
+.soft-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--flash-border);
+  box-shadow: var(--flash-shadow);
+  backdrop-filter: blur(14px);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #f97316 0%, #fb923c 30%, #ea580c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.flash-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background: rgba(249, 115, 22, 0.12);
+  color: var(--flash-accent-strong);
+  border: 1px solid rgba(249, 115, 22, 0.18);
+  padding: 0.45rem 0.8rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-glow::before {
+  content: "";
+  position: absolute;
+  inset: -15% auto auto -10%;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 9999px;
+  background: rgba(249, 115, 22, 0.14);
+  filter: blur(18px);
+}
+
+.hero-glow::after {
+  content: "";
+  position: absolute;
+  right: -8%;
+  bottom: -10%;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 9999px;
+  background: rgba(251, 146, 60, 0.12);
+  filter: blur(20px);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 2.6vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.06em;
+  font-weight: 900;
+  color: var(--flash-ink);
+}
+
+.feature-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 247, 237, 0.9));
+  border: 1px solid rgba(249, 115, 22, 0.12);
+  border-radius: 1.5rem;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.05);
+}
