@@ -17,7 +17,7 @@
 Both client and server live in the same monorepo with clear separation:
 
 ```
-FlashTrade/
+E-cart/
   Client/        # React + Vite front-end single-page app
     public/      # static assets and index.html
     src/         # source code
