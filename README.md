@@ -1,6 +1,6 @@
-# FlashTrade 🚀
+# E-Cart- E-Commerce Shopping Site 🚀
 
-**FlashTrade** is a modern, full‑stack multi‑vendor e‑commerce platform built with the latest technologies. It features role‑based workflows for **Customers**, **Sellers**, and **Admins** and promotes rapid development, scalable architecture, and a friendly developer experience.
+**E-Cart** is a modern, full‑stack multi‑vendor e‑commerce platform built with the latest technologies. It features role‑based workflows for **Customers**, **Sellers**, and **Admins** and promotes rapid development, scalable architecture, and a friendly developer experience.
 
 ### Tech Stack
 
@@ -63,7 +63,7 @@ The codebase opts for strict TypeScript, ESLint setups in the client, and Nodemo
 ## 📁 Monorepo Layout
 
 ```
-FlashTrade/
+E-Cart/
   Client/    # React + Vite frontend
   Server/    # Express + MongoDB backend
   README.md
